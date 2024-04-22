@@ -1,12 +1,12 @@
-- alarms: functions that execute other functions at desired times
- - alarm(func_to_execute, time_of_execution(using timezones))
- - cdtimer(func_to_execute, time_until_execution)
- - recurring_alarm(func_to_execute, time_of_execution, recurrence_interval)
-- datastructs: classes for interacting with jsons. Each instance covers one json, and takes the filename as input. Maybe the filenames can just be global variables for convenience
- - DataInv: base class for any list of dicts (would we want this?)
- - DataBase: base class for any dict of dicts
- - UserBase: subclass for any dict of dicts where each entry is a user
- - DiscordUserBase: subsubclass for dicts of dicts where each key is a discord_id and some standard user data is stored
-- util: random funcs and stuff
- - time_now()
- - timezones_hash: hashmap with timezone codes and their time difference from UTC.
+- **alarms**: functions that execute other functions at desired times
+  - alarm(func_to_execute, time_of_execution(using timezones))
+  - cdtimer(func_to_execute, time_until_execution)
+  - recurring_alarm(func_to_execute, time_of_execution, recurrence_interval)
+- **datastructs**: classes for interacting with jsons. Each instance covers one json, and takes the filename as input. Maybe the filenames can just be global variables for convenience
+  - DataInv: base class for any list of dicts (would we want this?)
+  - DataBase: base class for any dict of dicts
+  - UserBase: subclass for any dict of dicts where each entry is a user
+  - DiscordUserBase: subsubclass for dicts of dicts where each key is a discord_id and some standard user data is stored
+- **util**: random funcs and stuff
+  - time_now()
+  - timezones_hash: hashmap with timezone codes and their time difference from UTC.
