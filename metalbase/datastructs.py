@@ -48,10 +48,9 @@ class DataBase:
         :param args: (tuple of strings) the arguments together constitute the path to the dict that is being added to.
         :param kwargs: (dict) the entries that are being added to the dict in question.
         """
-        with open(self.filename, mode='r+', encoding='utf-8') as f:
-            # Load data from json file
-            with open(self.filename, mode='r', encoding='utf-8') as f:
-                json_data = json.load(f)
+        # Load data from json file
+        with open(self.filename, mode='r', encoding='utf-8') as f:
+            json_data = json.load(f)
 
         # Create views for the json file's data and self.data, then move them to the target dict
         view_for_file = json_data[entry_id]
