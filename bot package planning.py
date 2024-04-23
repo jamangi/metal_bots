@@ -42,6 +42,13 @@ class Userbase:
         if not present in all user dicts."""
 
     def save(self):
-        """Save any changes to self.data to the json permanently"""
+        """* Save any changes to self.data to the json permanently"""
+
+    """possible additional functions"""
+    def read_json(self):
+        """fetch data directly from the json file instead of from self.data"""
+
+    def data_difference(self):
+        """check whether self.data has undergone any changes with respect to the data in the json file"""
 
 
