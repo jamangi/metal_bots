@@ -13,7 +13,7 @@ def db():
 
 
 def test_add_a_book(db):
-    entry_id = 123456
+    entry_id = '123456'
     filename = "test_db.json"  # Use a temporary filename for testing
     db = DataBase(filename)
 
@@ -44,7 +44,7 @@ def test_add_a_book(db):
 
 
 def test_add_a_contract(db):
-    entry_id = 123456
+    entry_id = '123456'
     filename = "test_db.json"  # Use a temporary filename for testing
     db = DataBase(filename)
 
@@ -58,6 +58,7 @@ def test_add_a_contract(db):
     db.add(entry_id, start_date=12345)
     db.add(entry_id, end_date=54321)
     db.add(entry_id, "signatories", id1={})
+    db.add(entry_id, "signatories", id2={})
     db.add(entry_id, 'signatories', 'id1', display_name="Haltise", discord_id=123, signed=False)
     db.add(entry_id, 'signatories', 'id2', display_name="Berry", discord_id=1234, signed=True)
 
