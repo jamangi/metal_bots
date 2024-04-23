@@ -2,13 +2,13 @@ import pytest
 import os
 from metalbase.datastructs import DataBase
 
+
 @pytest.fixture
 def db():
     filename = "test_db.json"  # Use a temporary filename for testing
     db = DataBase(filename)
     yield db
     # Clean up after the test
-    db.close()
     os.remove(filename)
 
 
@@ -41,6 +41,7 @@ def test_add_a_book(db):
 
         }
     }
+
 
 def test_add_a_contract(db):
     entry_id = 123456
