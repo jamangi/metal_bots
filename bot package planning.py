@@ -1,5 +1,9 @@
 # Loose functions
 
+# Complete with test = ^
+# Drafted = *
+# Cancelled = X
+
 def timenow():
     """copy from an older project"""
 
@@ -8,12 +12,12 @@ def timenow():
 
 class Userbase:
     def __init__(self):
-        """search for file
-        make a new file if it doesn't exist'
-        save its data to self.data if it does
-        create a snapshot of its structure to be saved as self.structure, which is remade whenever anything changes
-        self.filename is the name of the json file
-        self.name is the name of the userbase"""
+        """* search for file
+        * make a new file if it doesn't exist'
+        * save its data to self.data if it does
+        X create a snapshot of its structure to be saved as self.structure, which is remade whenever anything changes
+        * self.filename is the name of the json file
+        X self.name is the name of the userbase"""
 
     def user(self, display_name=None, nickname=None, user_id=None):
         """Search for a user's data within the userbase using any of the above identifiers. Returns error if none are
