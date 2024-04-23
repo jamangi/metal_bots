@@ -67,7 +67,7 @@ class DataBase:
         with open(self.filename, mode='w', encoding='utf-8') as f:
             json.dump(json_data, f, indent=4)
 
-    def save(self, status=False):
+    def save(self):
         """Saves the data in self.data to the database's json file, replacing all data in the file."""
         with open(self.filename, mode='w', encoding='utf-8') as f:
             json.dump(self.data, f, indent=4)
