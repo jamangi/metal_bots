@@ -13,7 +13,7 @@ def db():
 
 
 def test_add_a_book(db):
-    entry_id = 123456
+    entry_id = '123456'
     filename = "test_db.json"  # Use a temporary filename for testing
     db = DataBase(filename)
 
@@ -44,7 +44,7 @@ def test_add_a_book(db):
 
 
 def test_add_a_contract(db):
-    entry_id = 123456
+    entry_id = '123456'
     filename = "test_db.json"  # Use a temporary filename for testing
     db = DataBase(filename)
 
@@ -58,6 +58,7 @@ def test_add_a_contract(db):
     db.add(entry_id, start_date=12345)
     db.add(entry_id, end_date=54321)
     db.add(entry_id, "signatories", id1={})
+    db.add(entry_id, "signatories", id2={})
     db.add(entry_id, 'signatories', 'id1', display_name="Haltise", discord_id=123, signed=False)
     db.add(entry_id, 'signatories', 'id2', display_name="Berry", discord_id=1234, signed=True)
 
@@ -81,5 +82,35 @@ def test_add_a_contract(db):
             "terms": "All Signatories must adhere to the meka order when discussing things, or suffer a spanking.",
             "start_date": 12345,
             "end_date": 54321
+        }
+    }
+
+
+def test_deeper_nesting(db):
+    entry_id = '123456'
+    filename = "test_db.json"  # Use a temporary filename for testing
+    db = DataBase(filename)
+
+    # Create the entry
+    db.create_entry(entry_id)
+
+    # Add data to nested dictionaries
+    db.add(entry_id, level1={})
+    db.add(entry_id, 'level1', level2={})
+    db.add(entry_id, 'level1', 'level2', level3={})
+    db.add(entry_id, "level1", "level2", "level3", key1="value1")
+    db.add(entry_id, "level1", "level2", "level3", key2="value2")
+
+    # Verify the data structure
+    assert db.data == {
+        entry_id: {
+            'level1': {
+                'level2': {
+                    'level3': {
+                        'key1': 'value1',
+                        'key2': 'value2'
+                    }
+                }
+            }
         }
     }
